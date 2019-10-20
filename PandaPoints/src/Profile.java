@@ -80,9 +80,8 @@ public class Profile {
 		}
 
 		
-		//points += (ridePointValue * pointMultiplier);
 		riddenToday = true;
-		//streak++;
+
 		if (points >= freeRidePoints) {
 			points = points - freeRidePoints;
 			freePasses++;

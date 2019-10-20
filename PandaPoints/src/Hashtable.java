@@ -47,9 +47,7 @@ public class Hashtable {
 	 * @return The profile associated with the username and password that comprises the login string, or null if none is found.
 	 */
 	public Profile getProfile(String login) {
-		System.out.println("get hash: " + (login.hashCode() & 0xfffffff));
 		int bidx = (login.hashCode() & 0xfffffff) % indices.length;
-		System.out.println("get bidx: " + bidx);
 		Node n = indices[bidx];
 		while (n != null) {
 			Profile p = profiles.get(n.getIndex());
@@ -68,9 +66,7 @@ public class Hashtable {
 	 * @return True if the profile is created successfully, false if the profile already exists.
 	 */
 	public boolean createProfile(String login, String name) {
-		System.out.println("create hash: " + (login.hashCode() & 0xfffffff));
 		int bidx = (login.hashCode() & 0xfffffff) % indices.length;
-		System.out.println("create bidx: " + bidx);
 		Node n = indices[bidx];
 		while (n != null) {
 			Profile p = profiles.get(n.getIndex());
@@ -81,7 +77,6 @@ public class Hashtable {
 		}
 		indices[bidx] = new Node(profiles.size(), indices[bidx]);
 		profiles.add(new Profile(login.hashCode() & 0xfffffff, name));
-		System.out.println(profiles.size());
 		count++;
 		return true;
 	}
